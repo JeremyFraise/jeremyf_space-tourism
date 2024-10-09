@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    overflow: hidden;
+}
+
+body {
+    margin:0;
+    position: relative;
+    width:100vh;
+    height: 100vh;
+    // position: fixed;
+    // background-image: url("../medias/img/home/background-home-mobile.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    @media(min-width: 768px) {
+        // background-image: url("../medias/img/home/background-home-tablet.jpg");
+    }
+    @media(min-width: 1280px) {
+        // background-image: url("../medias/img/home/background-home-desktop.jpg");
+    }
+}
+
+.section {
+    position: absolute;
+    top:0px;
+    bottom:0px;
+    right:0px;
+    left:0px;
+}
+
+
+// Other
+
+.cacher {
+    display: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+.gallery-slideshow-control {
+    display: none !important;
+}
+
