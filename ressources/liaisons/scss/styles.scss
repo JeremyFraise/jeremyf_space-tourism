@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 /**
- * @author Prenom Nom courriel
+ * @author Jeremy Fraser
  * @todo Lier les modules avec des instructions @import
  * @todo Compléter selon l'énoncé de l'exercice
  */
@@ -42,4 +42,9 @@
 
 /** Modules **/
 @import "modules/general";
+@import "modules/header";
+@import "modules/home";
+@import "modules/destination";
+@import "modules/crew";
+@import "modules/technology";
 @import "modules/normalize";

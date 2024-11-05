@@ -1,10 +1,24 @@
+/*
+* Source du code de préchargement
+https://webdesign.tutsplus.com/best-ways-to-preload-images-using-javascript-css-and-html--cms-41329t
+*/
+
+/**
+ * Code de l'application
+ */
 const app = {
 
     body: document.querySelector("body"),
     arrSections: document.querySelectorAll(".section"),
     arrDestinations: new Array(),
+    idCourant: "home",
 
     init: function() {
+
+        this.commencerPreload();
+
+        this.body.classList.add("body-home");
+
         this.arrSections.forEach(section => {
             if(section.id != "home"){
                 section.classList.add("cacher");
@@ -21,28 +35,45 @@ const app = {
             this.arrDestinations.push(element.id);
             element.addEventListener("click",() => this.changeDestination(element.id));
         });
+        this.changeDestination("Moon");
         // Crew
         document.querySelectorAll(".btnCrew").forEach(element => {
             element.addEventListener("click",() => this.changeCrew(parseInt(element.id.replace("btnCrew__", ""))));
         });
+        this.changeCrew(0);
         // Technology
         document.querySelectorAll(".btnTechnology").forEach(element => {
             element.addEventListener("click",() => this.changeTechnology(parseInt(element.id.replace("btnTechnology__", ""))));
         });
+        this.changeTechnology(0);
     },
 
     changerEtat: function(etat) {
         this.arrSections.forEach(section => {
             if(section.id != etat){
                 section.classList.add("cacher");
+                if(this.body.className == ("body-"+section.id)) {
+                    this.body.classList.remove("body-"+section.id);
+                }
+                document.querySelector("#entete__"+section.id).classList.remove("actif");
             } else {
                 section.classList.remove("cacher");
+                document.querySelector("#entete__"+section.id).classList.add("actif");
             }
         });
-        console.log(this.body.className);
+        this.body.classList.add("body-"+etat);
     },
 
     changeDestination: async function(strId) {
+        document.querySelectorAll(".btnDestination").forEach(element => {
+            if(strId == element.id.replace("btnDestination__", "")) {
+                element.classList.add("actif");
+            } else {
+                if(element.classList.contains("actif")) {
+                    element.classList.remove("actif");
+                }
+            }
+        });
         try {
             // Récupération des données avec fetch et await
             const response = await fetch("json/data.json");
@@ -75,7 +106,16 @@ const app = {
     },
 
     changeCrew: async function(intMember) {
-        console.log(intMember)
+        console.log(intMember);
+        document.querySelectorAll(".btnCrew").forEach(element => {
+            if(intMember == parseInt(element.id.replace("btnCrew__", ""))) {
+                element.classList.add("actif");
+            } else {
+                if(element.classList.contains("actif")) {
+                    element.classList.remove("actif");
+                }
+            }
+        });
         try {
             const response = await fetch("json/data.json");
 
@@ -98,6 +138,15 @@ const app = {
     },
 
     changeTechnology: async function(intMember) {
+        document.querySelectorAll(".btnTechnology").forEach(element => {
+            if(intMember == parseInt(element.id.replace("btnTechnology__", ""))) {
+                element.classList.add("actif");
+            } else {
+                if(element.classList.contains("actif")) {
+                    element.classList.remove("actif");
+                }
+            }
+        });
         try {
             // Récupération des données avec fetch et await
             const response = await fetch("json/data.json");
@@ -125,6 +174,49 @@ const app = {
         }
 
     },
+
+    commencerPreload: async function() {
+        // try {
+        //     // Récupération des données avec fetch et await
+        //     const response = await fetch("json/data.json");
+            
+        //     // Vérification de la réponse
+        //     if (!response.ok) {
+        //         throw new Error(`Erreur réseau : ${response.status}`);
+        //     }
+            
+        //     let arrDatas = ["home","destinations","crew","technology"];
+        //     // Conversion de la réponse en JSON
+        //     const datas = await response.json();
+            
+        //     // arrDatas.forEach(data => {
+        //     //     console.log(datas.data);
+        //     //     for(let element of datas[data]) {
+        //     //         console.log(element);
+        //     //         this.preloadImages(element.images.png);
+        //     //         this.preloadImages(element.images.webp);
+        //     //     }
+        //     // });
+
+
+
+        // } catch (error) {
+        //     // Gestion des erreurs avec un bloc try/catch
+        //     console.error('Erreur :', error.message);
+        // }
+        const arrChemins = new Array("home", "destination", "crew", "technology");
+
+        arrChemins.forEach(chemin => {
+            this.preloadImages("assets/"+chemin+"/background-"+chemin+"-desktop.jpg");
+            this.preloadImages("assets/"+chemin+"/background-"+chemin+"-tablet.jpg");
+            this.preloadImages("assets/"+chemin+"/background-"+chemin+"-mobile.jpg");
+        });
+    },
+
+    preloadImages: function(url) {
+        let img = new Image();
+        img.src = url;
+    }
 
 }
 window.addEventListener("load", app.init());

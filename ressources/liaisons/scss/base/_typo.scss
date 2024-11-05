@@ -16,8 +16,8 @@ body {
   font-size: 16px; /* 16px pour toutes les largeurs d'écran */
   font-size: 1.6rem;
   line-height: 1.375; /* facteur multiplicateur de la taille de la police 1.375x16=22 */
-  @media (min-width: 601px) {
-  }
+  // @media (min-width: 601px) {
+  // }
 }
 
 h1,
@@ -28,6 +28,10 @@ h3,
 .titreNiveau3 {
   font-family: $fontePrimaire;
   font-weight: 500;
+  text-align: center;
+  @media(min-width: $desktop) {
+    text-align: left;
+  }
 }
 
 h1,
@@ -49,6 +53,17 @@ h1,
       left: 0;
       bottom: 0;
     }
+  }
+}
+.h1__small {
+  font-size: 2.2rem;
+  font-weight: 200;
+  color: #D0D6F9;
+  text-transform: uppercase;
+  text-align: center;
+  @media(min-width:$desktop) {
+    font-size: 2.9rem;
+    text-align: left;
   }
 }
 
@@ -73,7 +88,16 @@ h3,
   }
 }
 
-.texte {
+p {
+  font-family: $fonteSecondaire;
+  line-height: 180%;
+  text-align: center;
+  @media(min-width:$desktop) {
+    text-align: left;
+  }
+}
+
+.text {
   font-family: $fonteSecondaire;
   font-size: 16px;
   font-size: 1.6rem;
@@ -81,6 +105,104 @@ h3,
   &--desktop {
     line-height: 1.5;
   }
+}
+.text-preset1 {
+  font-size: 80px;
+  font-family: $fontePrimaire;
+  color: #FFF;
+  margin: 0;
+  @media(min-width:$tablet) {
+    font-size: 144px;
+  }
+}
+.text-preset2 {
+  font-size: 56px;
+  font-family: $fontePrimaire;
+  color: #FFF;
+  margin: 0;
+  @media(min-width:$tablet) {
+    font-size: 80px;
+  }
+  @media(min-width:$desktop) {
+    font-size: 96px;
+  }
+}
+.text-preset3 {
+  font-size: 24px;
+  font-family: $fontePrimaire;
+  color: #FFF;
+  margin: 0;
+  @media(min-width:$tablet) {
+    font-size: 40px;
+  }
+  @media(min-width:$tablet) {
+    font-size: 56px;
+  }
+}
+.text-preset4 {
+  font-size: 18px;
+  font-family: $fontePrimaire;
+  color: #FFF;
+  margin: 0;
+  @media(min-width:$tablet) {
+    font-size: 24px;
+  }
+  @media(min-width:$desktop) {
+    font-size: 32px;
+  }
+  &.max {
+    width: max-content;
+  }
+}
+.text-preset5 {
+  font-size: 16px;
+  font-family: $fonteSecondaire;
+  text-align: center;
+  color: #D0D5F9;
+  margin: 0;
+  @media(min-width:$tablet) {
+    font-size: 20px;
+  }
+  @media(min-width:$desktop) {
+    font-size: 28px;
+    text-align: start;
+  }
+}
+.text-preset6 {
+  // font-size: 16px;
+  color: #FFF;
+  // @media(min-width: $desktop) {
+    font-size: 28px;
+  // }
+}
+.text-preset7 {
+  font-size: 14px;
+  color: #D0D5F9;
+}
+.text-preset8 {
+  font-size: 14px;
+  color: #D0D5F9;
+  @media(min-width: $desktop) {
+    font-size: 16px;
+  }
+}
+.text-preset9 {
+  font-size: 16px;
+  font-family: $fonteTertiaire;
+  color: #D0D5F9;
+  @media(min-width: $desktop) {
+    font-size: 18px;
+  }
+}
+
+.number {
+  font-family: $fonteTertiaire;
+  letter-spacing: 2.7px;
+  font-weight: 600;
+}
+
+.line-height__large {
+  letter-spacing: 2.7px;
 }
 
 input[type=text], input[type=number] {

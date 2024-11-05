@@ -6,160 +6,163 @@
     <title>Space Tourism</title>
 	<link rel="stylesheet" href="css/styles.css" />
     <script defer src="js/app.js"></script>
+    <script defer src="js/menu.js"></script>
 </head>
 <body style="margin:0">
     <header role="banner" class="header noJS">
-        <a href="index.html">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="24" cy="24" r="24" fill="white"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0C24 0 24 24 0 24C23.5776 24.1714 24 48 24 48C24 48 24 24 48 24C24 24 24 0 24 0Z" fill="#0B0D17"/>
-            </svg>
-        </a>
+        <div class="container-home">
+            <a href="index.html" class="link-home">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="24" cy="24" r="24" fill="white"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0C24 0 24 24 0 24C23.5776 24.1714 24 48 24 48C24 48 24 24 48 24C24 24 24 0 24 0Z" fill="#0B0D17"/>
+                </svg>
+            </a>
 
-        <nav role="navigation">
-            <ul>
-                <li>
-                    <button class="btnEntete" id="entete__home"><span>00</span> Home</button>
+            <div id="line"></div>
+        </div>
+        
+
+        <nav role="nav" class="nav">
+            <ul class="nav__menu">
+                <li class="nav__item">
+                    <button class="btnEntete button line-height__large actif" id="entete__home"><span class="number">00</span> HOME</button>
                 </li>
 
-                <li>
-                    <button class="btnEntete" id="entete__destination"><span>01</span> Destination</button>
+                <li class="nav__item">
+                    <button class="btnEntete button line-height__large" id="entete__destination"><span class="number">01</span> DESTINATION</button>
                 </li>
 
-                <li>
-                    <button class="btnEntete" id="entete__crew"><span>02</span> Crew</button>
+                <li class="nav__item">
+                    <button class="btnEntete button line-height__large" id="entete__crew"><span class="number">02</span> CREW</button>
                 </li>
 
-                <li>
-                    <button class="btnEntete" id="entete__technology"><span>03</span> Technology</button>
+                <li class="nav__item">
+                    <button class="btnEntete button line-height__large" id="entete__technology"><span class="number">03</span> TECHNOLOGY</button>
                 </li>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main role="contentinfo" class="main">
+
+        <!-- <p class="text"></p> -->
 
         <section class="section" id="home">
-            <div class="home_col1">
-                <div>
-                    <span class="h1_small">So, you want to travel to</span>
-                    <h1>SPACE</h1>
+            <div id="home__col1">
+                <div class="container-titre">
+                    <p class="text-preset5">SO, YOU WANT TO TRAVEL TO</p>
+                    <h1 class="text-preset1">SPACE</h1>
                 </div>
-                <p>
+                <p class="text-preset9">
                     Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. 
                     Well sit back, and relax because we’ll give you a truly out of this world experience!
                 </p>
             </div>
-            <div class="home_col2">
-                <button id="btnHome">Explore</button>
-            </div>
-        </section>
-
-        <section class="section" id="destination">
-            <div>
-                <span>01</span><p>PICK YOUR DESTINATION</p>
-            </div>
-            <div>
-                <div class="destination_col1">
-                    <picture>
-                        <source>
-                        <img id="destination__img" src="assets/destination/image-europa.png">
-                    </picture>
-                </div>
-
-                <div>
-                    <ul>
-                        <li>
-                            <button class="btnDestination" id="Moon">Moon</button>
-                        </li>
-                        <li>
-                            <button class="btnDestination" id="Mars">Mars</button>
-                        </li>
-                        <li>
-                            <button class="btnDestination" id="Europa">Europa</button>
-                        </li>
-                        <li>
-                            <button class="btnDestination" id="Titan">Titan</button>
-                        </li>
-                    </ul>
-
-                    <div class="infos-destination">
-                        <h2 id="destination__name"></h2>
-                        <p id="destination__desc"></p>
-
-                        <div>
-                            <p>AVG. DISTANCE</p>
-                            <p id="destination__distance"></p>
-                        </div>
-
-                        <div>
-                            <p>EST. TRAVEL TIME</p>
-                            <p id="destination__travel"></p>
-                        </div>
+            <div id="home__col2">
+                <div class="container-btnHome">
+                    <div id ="btnHome__hoverEffect">
+                        <button class="button text-preset4" id="btnHome">EXPLORE</button>
                     </div>
-
-
                 </div>
                 
             </div>
         </section>
 
-        <section class="section" id="crew">
-            <div>
-                <span>02</span><p>MEET YOUR CREW</p>
+        <section class="section" id="destination">
+            <!-- <div>
+                <span>01</span><p>PICK YOUR DESTINATION</p>
+            </div> -->
+            <div class="destination__col1">
+                <picture>
+                    <source>
+                    <img id="destination__img">
+                </picture>
             </div>
-
-            <div class="infos-crew">
-                <div>
-                    <span id="crew__role"></span>
-                    <h2 id="crew__name"></h2>
-                    <p id="crew__bio"></p>
+            <div class="destination__col2">
+                <div class="destination__liste">
+                    <button class="btnDestination text-preset8" id="Moon">MOON</button>
+                    <button class="btnDestination text-preset8" id="Mars">MARS</button>
+                    <button class="btnDestination text-preset8" id="Europa">EUROPA</button>
+                    <button class="btnDestination text-preset8" id="Titan">TITAN</button>
                 </div>
-                <img id="crew__img">
+                <div class="infos-destination">
+                    <div class="destination__info">
+                        <h2 id="destination__name" class="text-preset2 uppercase"></h2>
+                        <p class="text-preset9" id="destination__desc"></p>
+                    </div>
+
+                    <div class="line">
+                    </div>
+                    
+                    <div class="statistics">
+                        <div>
+                            <p>AVG. DISTANCE</p>
+                            <p class="text-preset6" id="destination__distance"></p>
+                        </div>
+
+                        <div>
+                            <p>EST. TRAVEL TIME</p>
+                            <p class="text-preset6" id="destination__travel"></p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="crew">
+            <!-- <div>
+                <span>02</span><p>MEET YOUR CREW</p>
+            </div> -->
+
+            <div class="crew__col1">
+                <div class="infos-crew">
+                    <p class="text-preset4 uppercase" id="crew__role"></p>
+                    <h2 class="text-preset3 uppercase" id="crew__name"></h2>
+                    <p class="text-preset9" id="crew__bio"></p>
+                </div> 
+                <div class="crew__nav">
+                    <button class="btnCrew" id="btnCrew__0"></button>
+                    <button class="btnCrew" id="btnCrew__1"></button>
+                    <button class="btnCrew" id="btnCrew__2"></button>
+                    <button class="btnCrew" id="btnCrew__3"></button>
+                </div>
             </div>
 
-            <div>
-                <button class="btnCrew" id="btnCrew__0">1</button>
-                <button class="btnCrew" id="btnCrew__1">2</button>
-                <button class="btnCrew" id="btnCrew__2">3</button>
-                <button class="btnCrew" id="btnCrew__3">4</button>
+            <div class="crew__col2">
+                <img id="crew__img">
             </div>
 
         </section>
 
         <section class="section" id="technology">
-            <div>
+            <!-- <div>
                 <span>03</span><p>SPACE LAUNCH 01</p>
-            </div>
+            </div> -->
 
-            <div>
-                <ul>
-                    <li>
-                        <button class="btnTechnology" id="btnTechnology__0">1</button>
-                    </li>
-                    <li>
-                        <button class="btnTechnology" id="btnTechnology__1">2</button>
-                    </li>
-                    <li>
-                        <button class="btnTechnology" id="btnTechnology__2">3</button>
-                    </li>
-                </ul>
+            <div class="technology__col1">
+                <div class="technology__nav">
+                    <button class="btnTechnology text-preset4" id="btnTechnology__0">1</button>
+                    <button class="btnTechnology text-preset4" id="btnTechnology__1">2</button>
+                    <button class="btnTechnology text-preset4" id="btnTechnology__2">3</button>
+                </div>
 
                 <div>
                     <div>
-                        <p>THE TERMINOLOGY...</p>
-                        <h2 id="technology__name"></h2>
+                        <p class="text-preset4 technology__legend">THE TERMINOLOGY...</p>
+                        <h2 class="text-preset3" id="technology__name"></h2>
 
-                        <p id="technology__desc"></p>
+                        <p class="text-preset9" id="technology__desc"></p>
                     </div>
-                    <img id="technology__img"> 
                 </div>
+            </div>
+
+            <div class="technology__col2">
+                <img id="technology__img"> 
             </div>
         </section>
 
     </main>
-
-    <footer></footer>
 
 </body>
 </html>
